@@ -4,7 +4,7 @@
 
 DuoMind builds a *Decision Twin* of you. It learns your goals, constraints and decision style, simulates each option you're weighing (1,000 Monte Carlo futures), explains its recommendation with tagged evidence, and learns from what actually happened.
 
-- **Live site:** https://duomind-steel.vercel.app
+- **Live site:** https://duomind-liart.vercel.app/#auth
 - **Repository:** https://github.com/piyushT3003/Duomind
 
 ---
