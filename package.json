@@ -1,0 +1,13 @@
+{
+  "name": "duomind",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DuoMind: personal decision intelligence. Static site plus a Gemini proxy function for Vercel.",
+  "scripts": {
+    "build": "node build.js",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

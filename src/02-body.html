@@ -1,0 +1,281 @@
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="ldg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7cc6ff"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+  <linearGradient id="rg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7cc6ff"/><stop offset="1" stop-color="#3d8bff"/></linearGradient>
+</defs></svg>
+
+<div id="loader" role="status" aria-live="polite">
+  <div class="ld">
+    <div class="ld-ring">
+      <svg viewBox="0 0 132 132"><circle class="t" cx="66" cy="66" r="60"/><circle class="p" id="ldp" cx="66" cy="66" r="60"/></svg>
+      <div class="ld-dots"><i style="transform:translate(0,-60px)"></i><i style="transform:rotate(120deg) translate(0,-60px)"></i><i style="transform:rotate(240deg) translate(0,-60px)"></i></div>
+      <b id="ldn">0%</b>
+    </div>
+    <div class="ld-t">DUOMIND</div>
+    <div class="ld-s" id="lds">Waking up your Twin…</div>
+  </div>
+</div>
+
+<canvas id="stars" aria-hidden="true"></canvas>
+<canvas id="gl" aria-hidden="true"></canvas>
+
+<div class="shell">
+  <header class="topbar hide" id="topbar">
+    <button class="brand" data-go="home" aria-label="DuoMind home"><span class="mk"><svg viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 3 3M15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-3 3M12 4v16"/></svg></span>DuoMind</button>
+    <nav class="nav glass" id="nav" aria-label="Main">
+      <span class="nav-ind" id="navInd"></span>
+      <a href="#home" data-go="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span></a>
+      <a href="#chat" data-go="chat"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span>Ask Twin</span></a>
+      <a href="#lab" data-go="lab"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4 20h16L14 9V3M7 15h10"/></svg><span>Decisions</span></a>
+      <a href="#insights" data-go="insights"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg><span>Insights</span></a>
+      <a href="#settings" data-go="settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.9 1.2V21a2 2 0 0 1-4 0v-.1a1.7 1.7 0 0 0-2.9-1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.7 1.7 0 0 0 3 15.1H3a2 2 0 0 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.7 1.7 0 0 0 9 4.6V4.5a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 2.9 1.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.1a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span>Settings</span></a>
+    </nav>
+    <div class="me">
+      <span class="vchip glass" id="vchip">Twin v1.0</span>
+      <button class="avatar" id="avatarBtn" aria-label="Account menu" aria-haspopup="true"></button>
+    </div>
+    <div class="menu glass" id="menu" role="menu">
+      <div class="who"><b id="menuName"></b><div class="small muted" id="menuMail"></div></div>
+      <button data-go="settings" role="menuitem">Profile &amp; settings</button>
+      <button data-act="export" role="menuitem">Copy my Twin data</button>
+      <button data-act="signout" role="menuitem">Sign out</button>
+    </div>
+  </header>
+
+  <main id="pages">
+    <!-- AUTH -->
+    <section class="page full" id="p-auth" data-page="auth">
+      <div class="auth">
+        <div class="auth-l">
+          <div class="brand" style="cursor:default"><span class="mk"><svg viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 3 3M15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-3 3M12 4v16"/></svg></span>DuoMind</div>
+          <div class="auth-anchor" id="anchor-auth" data-anchor></div>
+          <div class="auth-copy reveal">
+            <h1>A second brain that <em>decides with you.</em></h1>
+            <p>DuoMind builds a Decision Twin from how you think — then simulates your options, explains its reasoning, and learns from what actually happens.</p>
+            <div class="proof"><div><b>1,000</b>futures per decision</div><div><b>6</b>decision traits</div><div><b>Any</b>sector or role</div></div>
+          </div>
+        </div>
+        <div class="card auth-card reveal" id="authCard">
+          <div>
+            <div class="h2" id="authTitle">Welcome back</div>
+            <p class="muted small" id="authSub" style="margin-top:6px">Sign in to continue with your Twin.</p>
+          </div>
+          <div class="tabs" id="authTabs" role="tablist">
+            <span class="ti"></span>
+            <button class="on" role="tab" aria-selected="true" data-tab="in">Sign in</button>
+            <button role="tab" aria-selected="false" data-tab="up">Create account</button>
+          </div>
+          <form class="form" id="authForm" novalidate>
+            <div id="nameWrap" hidden>
+              <label class="field"><input id="fName" autocomplete="name" placeholder=" " maxlength="40"><span>Full name</span></label>
+              <div class="ferr" id="eName"></div>
+            </div>
+            <div>
+              <label class="field"><input id="fEmail" type="email" autocomplete="email" placeholder=" " maxlength="80"><span>Work email</span></label>
+              <div class="ferr" id="eEmail"></div>
+            </div>
+            <div>
+              <label class="field"><input id="fPass" type="password" autocomplete="current-password" placeholder=" " maxlength="80"><span>Password</span>
+                <button type="button" class="eye" id="eyeBtn" aria-label="Show password"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button></label>
+              <div class="meter" id="meter" hidden><i></i><i></i><i></i><i></i></div>
+              <div class="ferr" id="ePass"></div>
+            </div>
+            <div class="row" style="justify-content:space-between" id="remRow">
+              <label class="check"><input type="checkbox" id="fRem" checked><span class="bx"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></span>Keep me signed in</label>
+              <button type="button" class="btn btn-ghost btn-sm" id="forgotBtn">Forgot password?</button>
+            </div>
+            <div class="formnote" id="formNote"></div>
+            <button class="btn btn-primary" type="submit" id="authSubmit" style="padding:13px"><span>Sign in</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="or">or</div>
+            <button type="button" class="btn demo-btn" id="demoBtn"><svg viewBox="0 0 24 24"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg>Try the live demo — no sign-up</button>
+            <button type="button" class="btn sso" id="ssoBtn" hidden><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg><span id="ssoLabel">Continue with your Claude account</span></button>
+          </form>
+          <p class="fine">Accounts live on this device, and passwords are stored only as salted SHA-256 hashes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ONBOARDING -->
+    <section class="page" id="p-onboarding" data-page="onboarding">
+      <div class="card ob reveal">
+        <div class="eyebrow" id="obEyebrow">Step 1 of 4</div>
+        <div class="steps" id="obSteps"><i></i><i></i><i></i><i></i></div>
+
+        <div class="ob-step" data-step="1">
+          <div class="h2">Tell your Twin who you are</div>
+          <p class="muted" style="margin:6px 0 18px">Any field, any role. This shapes what "good" looks like for you.</p>
+          <div class="grid2" style="gap:12px">
+            <label class="field"><input id="obName" placeholder=" " maxlength="40"><span>What should your Twin call you?</span></label>
+            <label class="field"><input id="obRole" placeholder=" " maxlength="60"><span>Your role (e.g. ICU nurse, founder, CA student)</span></label>
+          </div>
+          <p class="small muted" style="margin:18px 0 10px">Your sector</p>
+          <div class="sectors" id="sectors"></div>
+          <label class="field" id="otherSectorWrap" style="margin-top:12px" hidden><input id="obSectorOther" placeholder=" " maxlength="50"><span>Type your sector</span></label>
+        </div>
+
+        <div class="ob-step" data-step="2">
+          <div class="h2">What are you working toward?</div>
+          <p class="muted" style="margin:6px 0 18px">Add up to 5 goals in your own words. Press Enter after each. Your Twin scores every option against these.</p>
+          <div class="tagin" id="goalBox"><input id="goalIn" placeholder="e.g. Get promoted to team lead by March" maxlength="90" aria-label="Add a goal"></div>
+          <div class="sugs" id="goalSugs" style="margin-top:12px;flex-wrap:wrap"></div>
+        </div>
+
+        <div class="ob-step" data-step="3">
+          <div class="h2">How do you decide?</div>
+          <p class="muted" style="margin:6px 0 18px">Five quick calls. There are no right answers; this seeds your Decision DNA.</p>
+          <div id="quiz"></div>
+        </div>
+
+        <div class="ob-step" data-step="4">
+          <div class="h2">Your real constraints</div>
+          <p class="muted" style="margin:6px 0 18px">Recommendations respect these.</p>
+          <div class="slider-row"><label>Hours per week you can give to new commitments <b id="hrsV">10 h</b></label><input type="range" id="obHours" min="1" max="60" value="10"></div>
+          <div class="slider-row"><label>Risk you're comfortable with <b id="riskV">Balanced</b></label><input type="range" id="obRisk" min="0" max="100" value="50"></div>
+          <div class="grid2" style="gap:12px">
+            <label class="field"><input id="obBudget" placeholder=" " maxlength="40"><span>Budget or money constraint (optional)</span></label>
+            <label class="field"><select id="obTone"><option value="concise">Concise and direct</option><option value="detailed">Detailed with reasoning</option><option value="coach">Supportive coach</option></select><span>How should your Twin talk?</span></label>
+          </div>
+        </div>
+
+        <div class="ob-foot">
+          <button class="btn btn-ghost" id="obBack">Back</button>
+          <button class="btn btn-primary" id="obNext"><span>Continue</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOME -->
+    <section class="page" id="p-home" data-page="home">
+      <div class="hub-head">
+        <div class="hello reveal" id="hello"></div>
+        <h1 id="hubTitle"><span class="l1">Your second brain</span><span class="l2">for decisions.</span></h1>
+      </div>
+      <div class="stage" id="stage">
+        <svg id="wires" aria-hidden="true"></svg>
+        <div class="stage-anchor" id="anchor-home" data-anchor data-drag title="Drag to rotate"></div>
+        <div class="card hubcard hc-tl" data-go="insights" id="hcMem"></div>
+        <div class="card hubcard hc-bl" data-go="chat" id="hcAsk"></div>
+        <div class="card hubcard hc-tr" data-go="settings" id="hcPriv"></div>
+        <div class="card hubcard hc-br" data-go="insights" id="hcDna"></div>
+      </div>
+      <div class="hub-cta"><button class="btn btn-primary btn-pill" data-go="chat"><span>Ask your Twin</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+      <div class="hub-row">
+        <div class="card pad"><div class="eyebrow">Suggested for you</div><div class="sug" id="homeSug" style="margin-top:12px"></div></div>
+        <div class="card pad"><div class="eyebrow">Recent decisions</div><div id="homeDec" style="margin-top:8px"></div></div>
+        <div class="card pad"><div class="eyebrow">Your goals</div><div id="homeGoals" style="margin-top:8px"></div></div>
+      </div>
+    </section>
+
+    <!-- CHAT -->
+    <section class="page" id="p-chat" data-page="chat">
+      <div class="chat">
+        <aside class="card threads">
+          <button class="btn btn-primary" id="newChat"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>New conversation</button>
+          <div class="list" id="threadList"></div>
+        </aside>
+        <div class="card convo">
+          <div class="convo-h">
+            <div class="orb" id="anchor-chat" data-anchor></div>
+            <div class="grow"><div class="h3" id="chatTitle">Ask your Twin</div><div class="st" id="chatStatus">Ready</div></div>
+            <span class="badge" id="engineBadge"></span>
+          </div>
+          <div class="msgs" id="msgs" aria-live="polite"></div>
+          <div class="composer">
+            <div class="sugs" id="chatSugs"></div>
+            <form class="box" id="chatForm">
+              <textarea id="chatIn" rows="1" placeholder="Ask anything, or describe a decision: “Should I …or …?”" maxlength="2000" aria-label="Message your Twin"></textarea>
+              <button class="send" id="sendBtn" type="submit" aria-label="Send"><svg class="i-send" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg><svg class="i-stop" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/></svg></button>
+            </form>
+            <div class="hint"><span>Enter to send · Shift+Enter for a new line</span><span id="memHint"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAB -->
+    <section class="page" id="p-lab" data-page="lab">
+      <div class="row" style="justify-content:space-between;margin-bottom:18px">
+        <div class="row" style="gap:14px"><div class="orb lab-orb" id="anchor-lab" data-anchor></div><div><div class="eyebrow">Decision Lab</div><div class="h2" style="margin-top:6px">Every decision, simulated</div></div></div>
+        <button class="btn" data-go="chat"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>New decision</button>
+      </div>
+      <div class="lab">
+        <div class="card pad"><div class="eyebrow">Logged decisions</div><div class="dl" id="decList" style="margin-top:10px"></div></div>
+        <div id="decDetail"></div>
+      </div>
+    </section>
+
+    <!-- INSIGHTS -->
+    <section class="page" id="p-insights" data-page="insights">
+      <div style="margin-bottom:18px"><div class="eyebrow">Insights</div><div class="h2" style="margin-top:6px">What your Twin knows about you</div></div>
+      <div class="grid3" id="insStats"></div>
+      <div class="grid2" style="margin-top:18px">
+        <div class="card pad"><div class="row" style="justify-content:space-between"><div class="eyebrow">Your brain map</div><span class="small muted">Hover a region or a trait</span></div>
+          <div class="ins-brain" id="anchor-ins" data-anchor data-drag title="Drag to rotate"></div>
+          <p class="small muted" style="margin-bottom:6px">Each region stands for one Decision DNA trait. It’s a visual metaphor, not neuroscience.</p>
+          <div id="insDna"></div></div>
+        <div class="card pad"><div class="eyebrow">Blind spots · said vs did</div><div id="insBlind" style="margin-top:10px"></div></div>
+      </div>
+      <div class="grid2" style="margin-top:18px">
+        <div class="card pad"><div class="row" style="justify-content:space-between"><div class="eyebrow">Memory</div><span class="small muted" id="memCount"></span></div><div id="insMem" style="margin-top:6px;max-height:420px;overflow:auto"></div></div>
+        <div class="card pad"><div class="eyebrow">Twin evolution</div><div id="insLog" style="margin-top:6px;max-height:420px;overflow:auto"></div></div>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="page" id="p-settings" data-page="settings">
+      <div style="margin-bottom:18px"><div class="eyebrow">Settings</div><div class="h2" style="margin-top:6px">Profile, privacy and data</div></div>
+      <div class="grid2">
+        <div class="card pad">
+          <div class="h3" style="margin-bottom:14px">Profile</div>
+          <form class="form" id="profForm">
+            <div class="grid2" style="gap:12px">
+              <label class="field"><input id="sName" placeholder=" " maxlength="40"><span>Name</span></label>
+              <label class="field"><input id="sRole" placeholder=" " maxlength="60"><span>Role</span></label>
+            </div>
+            <label class="field"><input id="sSector" placeholder=" " maxlength="50"><span>Sector</span></label>
+            <label class="field"><textarea id="sGoals" placeholder=" " rows="4"></textarea><span>Goals (one per line)</span></label>
+            <div class="slider-row"><label>Hours per week <b id="sHrsV"></b></label><input type="range" id="sHours" min="1" max="60"></div>
+            <div class="slider-row"><label>Risk comfort <b id="sRiskV"></b></label><input type="range" id="sRisk" min="0" max="100"></div>
+            <label class="field"><select id="sTone"><option value="concise">Concise and direct</option><option value="detailed">Detailed with reasoning</option><option value="coach">Supportive coach</option></select><span>Tone</span></label>
+            <button class="btn btn-primary" type="submit">Save profile</button>
+          </form>
+        </div>
+        <div>
+          <div class="card pad">
+            <div class="h3" style="margin-bottom:6px">What your Twin may use</div>
+            <p class="small muted" style="margin-bottom:14px">Turning a source off removes it from every recommendation and marks it "excluded by you" in explanations.</p>
+            <div id="permList"></div>
+          </div>
+          <div class="card pad" style="margin-top:18px">
+            <div class="h3" style="margin-bottom:6px">AI engine</div>
+            <p class="small muted" id="aiStatus" style="margin-bottom:14px"></p>
+            <form class="form" id="aiForm" autocomplete="off">
+              <label class="field"><input id="gemKey" type="password" placeholder=" " autocomplete="off" spellcheck="false"><span>Gemini API key</span>
+                <button type="button" class="eye" id="gemEye" aria-label="Show key"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button></label>
+              <div class="grid2" style="gap:12px">
+                <label class="field"><input id="gemModel" placeholder=" " spellcheck="false"><span>Reply model</span></label>
+                <label class="field"><input id="gemFast" placeholder=" " spellcheck="false"><span>Analysis model</span></label>
+              </div>
+              <div class="row"><button class="btn btn-primary" type="submit" id="gemSave">Save &amp; test</button><button class="btn btn-danger" type="button" id="gemClear">Remove key</button></div>
+              <p class="small muted">Get a key at aistudio.google.com/apikey. It’s stored only in this browser and sent only to Google. Anyone who uses this browser profile can use it, so use a separate key with a spending limit.</p>
+            </form>
+          </div>
+          <div class="card pad" style="margin-top:18px">
+            <div class="h3" style="margin-bottom:6px">Display</div>
+            <p class="small muted" style="margin-bottom:14px">Auto lowers the brain’s particle density if your device can’t hold a smooth frame rate.</p>
+            <label class="field"><select id="sPerf"><option value="auto">Auto</option><option value="high">High quality</option><option value="low">Battery saver</option></select><span>3D quality</span></label>
+            <p class="small muted" id="perfNow" style="margin-top:8px"></p>
+          </div>
+          <div class="card pad" style="margin-top:18px">
+            <div class="h3" style="margin-bottom:6px">Your data</div>
+            <p class="small muted" style="margin-bottom:14px">Everything is stored in this browser under your account.</p>
+            <div class="row"><button class="btn" data-act="export">Copy data as JSON</button><button class="btn btn-danger" data-act="reset">Reset Twin</button><button class="btn btn-danger" data-act="delete">Delete account</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="mwrap" id="mwrap"><div class="modal glass" id="modal" role="dialog" aria-modal="true"><button class="mx" data-act="closeModal" aria-label="Close">×</button><div id="mbody"></div></div></div>
+<div id="toasts" aria-live="polite"></div>
+<div id="brainTip" class="glass" hidden></div>
